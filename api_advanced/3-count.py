@@ -27,7 +27,6 @@ def count_words(subreddit, word_list=[], hot_list=[], after=""):
                     new_dict[word.lower()] += 1
                 else:
                     new_dict.update({word.lower(): 1})
-
         sorted_dict = sorted(new_dict.items(), key=lambda x: (-x[1], x[0]))
         for key, value in sorted_dict:
             if (key in word_list) and (value > 0):
