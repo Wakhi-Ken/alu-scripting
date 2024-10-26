@@ -6,11 +6,13 @@ import requests
 
 def top_ten(subreddit):
     """Fetches and prints the titles of the top 10 hot posts in a subreddit."""
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
-    headers = {"User-Agent": "MyRedditApp/0.1"}
+    URL = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
+    
+    HEADERS = {"User-Agent": "PostmanRuntime/7.35.0"}
 
     try:
         response = requests.get(url, headers=headers, allow_redirects=False)
+        """checks status"""
         if response.status_code == 200:
             hot_posts = response.json().get("data", {}).get("children", [])
             for post in hot_posts:
